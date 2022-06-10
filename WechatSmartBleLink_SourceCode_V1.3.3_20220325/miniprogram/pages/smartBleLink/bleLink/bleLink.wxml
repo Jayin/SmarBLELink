@@ -1,0 +1,90 @@
+<!--miniprogram/pages/smartBleLink/bleLink/bleLink.wxml-->
+<view class="page page-aplink" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{tips}}">{{tips}}</view>
+
+    <view wx:if="{{!bluetoothEnabled}}">
+      <view class="current-wifi-lost" style='text-align: center;'>
+        <icon class="iconfont icon-bluetooth"></icon>
+        <view class='ssid'>未能搜索设备</view>
+        <view class='help'>
+          <view>请确认完成以下操作后重试:</view>
+          <view> 1. 开启手机蓝牙</view>
+          <view> 2. 开启微信使用蓝牙的权限</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:elif="{{!wifiConnected}}">
+      <view class="current-wifi-lost" style='text-align: center;'>
+        <icon class="iconfont icon-wifi"></icon>
+        <view class='ssid'>未能搜索设备</view>
+        <view class='help'>
+          <view wx:if="{{isIos}}">
+            <view>请确认开启手机Wi-Fi后重试</view>
+          </view>
+          <view wx:else>
+            <view>请确认完成以下操作后重试:</view>
+            <view> 1. 开启手机Wi-Fi</view>
+            <view> 2. 开启手机位置服务（即GPS定位）</view>
+            <view> 3. 开启微信使用定位的权限</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-msg" wx:elif="{{error}}">
+      <view class="weui-msg__icon-area">
+        <icon type="warn" size="93" color="#FFBE00"></icon>
+      </view>
+      <view class="weui-msg__text-area">
+        <view class="weui-msg__title">{{error.title}}</view>
+        <view class="weui-msg__desc">{{error.message}}</view>
+      </view>
+      <view class="weui-btn-area" wx:if="{{error.retry}}">
+        <button class="weui-btn btn-link" type="primary" bindtap="retry" data-type="{{error.retry}}">重试</button>
+      </view>
+    </view>
+
+    <view wx:else>
+      <view class="current-wifi" style='text-align: center;'>
+        <icon class="iconfont icon-wifi"></icon>
+        <view class='ssid'>{{wifiSsid}}</view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title form">
+        <view class="weui-cell weui-cell_input" hidden='{{hideBleInfoInputs}}'>
+          <view class="weui-cell__hd">
+            <view class="weui-label">BLE名称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入BLE名称" bindinput="bindInput" data-key="bleName" value="{{bleName}}" maxlength="26"/>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">Wi-Fi 密码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" password='{{!showWifiPassword}}' placeholder="请输入对应的Wi-Fi密码" bindinput='bindInput' data-key="wifiPassword" value="{{wifiPassword}}" maxlength="64"/>
+          </view>
+          <view class="weui-cell__ft">
+            <icon class="iconfont {{wifiPasswordIcon}}" ontap="showWifiPassword"></icon>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-btn-area">
+        <button class="weui-btn btn-link" type="primary" bindtap="startBleLink">连接</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="load-more-panel" wx:if="{{loading}}">
+    <view class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">{{loading}}</view>
+    </view>
+  </view>
+</view>

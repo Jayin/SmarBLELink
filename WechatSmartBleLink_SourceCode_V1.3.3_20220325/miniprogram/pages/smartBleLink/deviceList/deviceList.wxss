@@ -1,0 +1,4 @@
+/* miniprogram/pages/smartBleLink/deviceList/deviceList.wxss */
+.page_device_list {
+  padding: 20px 0;
+}

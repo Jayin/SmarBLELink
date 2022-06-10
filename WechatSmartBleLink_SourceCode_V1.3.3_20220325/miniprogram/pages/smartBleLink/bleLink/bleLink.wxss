@@ -1,0 +1,56 @@
+/* miniprogram/pages/smartBleLink/bleLink/bleLink.wxss */
+@import '../../../style/iconfont/iconfont.wxss';
+
+.icon-wifi, .icon-bluetooth {
+  display: block;
+  font-size: 240rpx;
+  height: 240rpx;
+  line-height: 240rpx;
+  margin: 55rpx 0;
+}
+
+.ssid {
+  display: block;
+  font-size: 17px;
+  min-height: 27px;
+}
+
+.help {
+  display: inline-block;
+  margin-top:20rpx;
+  color:#888888;
+  text-align:left;
+  font-size:14px;
+  white-space: pre-wrap;
+}
+
+.form {
+  margin-top: 50rpx;
+}
+
+.current-wifi, .current-wifi-lost {
+  text-align: center;
+}
+
+.current-wifi .icon-wifi {
+  color: #67D14F;
+}
+
+.current-wifi-lost .icon-wifi, .current-wifi-lost .icon-bluetooth {
+  color: #C9C9C9;
+}
+
+.weui-label {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.weui-btn-area {
+  margin-top: 50rpx;
+}
+.weui-input {
+  font-size: 14px;
+}
+
+.icon-eye_open, .icon-eye_closed {
+  font-size: 25px;
+}

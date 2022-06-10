@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/smartBleLink/index/index",
+    "pages/smartBleLink/guide/guide",
+    "pages/smartBleLink/bleLink/bleLink",
+    "pages/smartBleLink/deviceList/deviceList"
+  ],
+  "window": {
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eeeeee",
+    "navigationBarTitleText": "蓝牙BLE配网",
+    "navigationBarTextStyle": "black"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx31b43acf6e51cff0"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

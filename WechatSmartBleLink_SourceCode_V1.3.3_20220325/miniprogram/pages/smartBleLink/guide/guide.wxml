@@ -1,0 +1,14 @@
+<!--pages/smartBleLink/guide/guide.wxml-->
+<view class="page_guide">
+  <view class="guide_title">配置设备上网前请确认已完成以下准备</view>
+  <view class="guide_steps">
+      <view class="guide_step" wx:for="{{guideTexts}}" wx:for-index="idx" wx:for-item="guideText" wx:key="*this">
+          <view class='guide_step_index'>{{idx + 1}}</view>
+          <view class='guide_step_text'>{{guideText}}</view>
+      </view>
+  </view>  
+  <view class='buttons_panel'>
+    <button class="weui-btn" type="primary" bindtap="go2BleLink">配置设备上网</button>
+    <button class="weui-btn" type="default" bindtap="go2DeviceList" hidden='true'>设备已联网，跳过此步</button>
+  </view>
+</view>

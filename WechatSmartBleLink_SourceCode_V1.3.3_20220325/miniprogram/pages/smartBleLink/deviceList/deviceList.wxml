@@ -1,0 +1,29 @@
+<!--miniprogram/pages/smartBleLink/deviceList/deviceList.wxml-->
+<view class='page page_device_list'>
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_appmsg weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{devices}}" wx:for-item="device" wx:key="mac" ontap="goBack2ReferrenMinApp" data-device='{{device}}'>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{device.mac}}</view>
+                    <view class="weui-media-box__desc">{{device.ip}}</view>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+            <view class="weui-media-box weui-media-box_appmsg weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style='width: 42px; height: 42px;'>
+                    <image class="weui-media-box__thumb" src="../../../images/tail-spin.svg"/>
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title" style='color:#999;'>正在搜索设备</view>
+                </view>
+            </view>
+        </view>
+      </view>    
+        
+      <view class='weui-cells__title'>
+        <text style='color: #576b95;'>若搜索不到要添加的设备，请尝试再次</text><text style='color: #009688;' ontap="go2BleLink">配置设备上网</text>
+      </view>
+    </view>
+</view>
+
